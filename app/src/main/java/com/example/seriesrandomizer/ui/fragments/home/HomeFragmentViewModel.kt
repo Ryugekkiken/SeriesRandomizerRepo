@@ -1,4 +1,4 @@
-package com.example.seriesrandomizer.ui
+package com.example.seriesrandomizer.ui.fragments.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,9 +9,8 @@ import com.example.seriesrandomizer.api.services.SeriesApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 @HiltViewModel
-class HomeScreenViewModel @Inject constructor(
+class HomeFragmentViewModel @Inject constructor(
     private val repository: SeriesApiClient,
     private val apiKey: String
 ) : ViewModel() {

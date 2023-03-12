@@ -1,18 +1,16 @@
-package com.example.seriesrandomizer.ui
+package com.example.seriesrandomizer.ui.fragments.home
 
-import android.content.Context
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.seriesrandomizer.R
 import com.example.seriesrandomizer.api.models.ShowDataClass
 import com.example.seriesrandomizer.databinding.PopularShowItemBinding
 import com.example.seriesrandomizer.util.ImageLoaderTool
-import java.security.AccessController.getContext
 
-class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>) :
+class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>, private val view: View) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +21,7 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.bind(item)
+        holder.bind(item, view)
     }
 
     fun submitList(newItems: List<ShowDataClass>) {
@@ -35,7 +33,7 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>) :
     class ViewHolder(private val binding: PopularShowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ShowDataClass) {
+        fun bind(item: ShowDataClass, view: View) {
             with(binding) {
                 showName.text = item.showName
                 voteAverage.text = root.context.getString(
@@ -51,6 +49,11 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>) :
                         item.originalLanguage?.capitalize()
                     )
                 ImageLoaderTool(item.posterPath.orEmpty(), root.context).loadImage(posterImageView)
+
+                clickableArea.setOnClickListener {
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_homeFragment_to_showDetailsFragment)
+                }
             }
         }
     }

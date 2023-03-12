@@ -3,7 +3,6 @@ package com.example.seriesrandomizer.util
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seriesrandomizer.R
 
 class RecyclerViewItemDecoration: RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
