@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Series Randomizer</string>
+
+    <!-- Popular show item strings -->
+    <string name="vote_average_string">Vote average: %s</string>
+    <string name="vote_count_string">Vote count: %s</string>
+    <string name="original_language_string">Original language: %s</string>
 </resources>

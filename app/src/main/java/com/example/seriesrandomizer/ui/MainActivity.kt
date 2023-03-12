@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.seriesrandomizer.R
 import com.example.seriesrandomizer.api.services.SeriesApiClient
 import com.example.seriesrandomizer.databinding.ActivityMainBinding
+import com.example.seriesrandomizer.util.RecyclerViewItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.getSeriesList()
 
         val adapter = RecyclerViewAdapter(mutableListOf())
+
+        binding.recyclerView.addItemDecoration(RecyclerViewItemDecoration())
 
         viewModel.seriesList.observe(this) {
             adapter.submitList(it)

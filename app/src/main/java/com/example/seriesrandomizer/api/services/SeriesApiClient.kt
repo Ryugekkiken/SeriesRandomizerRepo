@@ -12,10 +12,10 @@ import retrofit2.http.Query
 interface SeriesApiClient {
 
     companion object {
-        const val POPULAR_TV_SHOWS = "/3/tv/popular"
-        const val ALL_EPISODES_FOR_SEASON_ENDPOINT = "/tv/{series_id}/season/{season_number}"
-        const val SHOW_FROM_SEARCH_ENDPOINT = "/search/tv"
-        const val SHOW_INFORMATION_FROM_ID = "/tv/{tv_id}"
+        const val POPULAR_TV_SHOWS = "tv/popular"
+        const val ALL_EPISODES_FOR_SEASON_ENDPOINT = "tv/{series_id}/season/{season_number}"
+        const val SHOW_FROM_SEARCH_ENDPOINT = "search/tv"
+        const val SHOW_INFORMATION_FROM_ID = "tv/{tv_id}"
     }
 
     @GET(POPULAR_TV_SHOWS)
