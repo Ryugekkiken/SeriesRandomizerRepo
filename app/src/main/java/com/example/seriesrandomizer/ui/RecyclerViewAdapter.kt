@@ -46,7 +46,10 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>) :
                     root.context.getString(R.string.vote_count_string, item.voteCount.toString())
                 airDate.text = item.firstAirDate
                 originalLanguage.text =
-                    root.context.getString(R.string.original_language_string, item.originalLanguage)
+                    root.context.getString(
+                        R.string.original_language_string,
+                        item.originalLanguage?.capitalize()
+                    )
                 ImageLoaderTool(item.posterPath.orEmpty(), root.context).loadImage(posterImageView)
             }
         }

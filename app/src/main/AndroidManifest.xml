@@ -19,7 +19,7 @@
             android:name="TMDB_API_KEY"
             android:value="97ea6f85f5e5541a9741edc3c2f514ed"/>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.HomeScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
