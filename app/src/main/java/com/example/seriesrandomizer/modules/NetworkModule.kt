@@ -1,9 +1,12 @@
 package com.example.seriesrandomizer.modules
 
+import android.content.Context
+import android.content.pm.PackageManager
 import com.example.seriesrandomizer.api.services.SeriesApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,6 +26,14 @@ object NetworkModule {
             level = HttpLoggingInterceptor.Level.BODY
         })
         .build()
+
+    @Singleton
+    @Provides
+    fun provideApiKey(@ApplicationContext context: Context): String =
+        context.packageManager.getApplicationInfo(
+            context.packageName,
+            PackageManager.GET_META_DATA
+        ).metaData.getString("TMDB_API_KEY").orEmpty()
 
     @Singleton
     @Provides
