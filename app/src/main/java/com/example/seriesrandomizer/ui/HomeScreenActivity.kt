@@ -1,23 +1,19 @@
 package com.example.seriesrandomizer.ui
 
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.seriesrandomizer.R
-import com.example.seriesrandomizer.api.services.SeriesApiClient
 import com.example.seriesrandomizer.databinding.ActivityMainBinding
+import com.example.seriesrandomizer.util.RecyclerViewItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 //HiltViewModel
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class HomeScreenActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
-    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: HomeScreenViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.getSeriesList()
 
         val adapter = RecyclerViewAdapter(mutableListOf())
+
+        binding.recyclerView.addItemDecoration(RecyclerViewItemDecoration())
 
         viewModel.seriesList.observe(this) {
             adapter.submitList(it)
