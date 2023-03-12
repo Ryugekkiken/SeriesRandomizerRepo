@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.seriesrandomizer"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -31,17 +31,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.example.seriesrandomizer'
 }
 
 dependencies {
-    def lifecycle_version = "2.4.1"
+    def lifecycle_version = "2.5.1"
     def retrofit_version = "2.9.0"
     def gson_version = "2.9.0"
     def okhttp_version = "4.9.0"
     def glide_version = "4.12.0"
 
     // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common:2.5.1"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -56,12 +57,22 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     //Dagger-hilt
-    implementation 'com.google.dagger:hilt-android:2.40.5'
-    kapt 'com.google.dagger:hilt-android-compiler:2.40.5'
+    implementation 'com.google.dagger:hilt-android:2.45'
+    kapt 'com.google.dagger:hilt-compiler:2.45'
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.0'
-    implementation 'com.google.android.material:material:1.7.0'
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.45'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.45'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.45'
+    kaptTest 'com.google.dagger:hilt-compiler:2.45'
+
+    kapt "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
