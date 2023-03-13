@@ -1,6 +1,6 @@
 package com.example.seriesrandomizer.api.services
 
-import com.example.seriesrandomizer.api.models.EpisodeDataClass
+import com.example.seriesrandomizer.api.models.EpisodeModel
 import com.example.seriesrandomizer.api.responses.PopularShowsResponse
 import com.example.seriesrandomizer.api.responses.ShowFromSearchResponse
 import com.example.seriesrandomizer.api.responses.ShowInformationFromIdResponse
@@ -26,7 +26,7 @@ interface SeriesApiClient {
         @Path("series_id") seriesId: Int,
         @Path("season_number") seasonNumber: Int,
         @Query("api_key") apiKey: String
-    ): Response<List<EpisodeDataClass>>
+    ): Response<List<EpisodeModel>>
 
     @GET(SHOW_FROM_SEARCH_ENDPOINT)
     suspend fun getShowFromSearch(
@@ -36,7 +36,7 @@ interface SeriesApiClient {
 
     @GET(SHOW_INFORMATION_FROM_ID)
     suspend fun getShowInformationFromId(
-        @Query("api_key") apiKey: String,
         @Path("tv_id") seriesId: Int,
+        @Query("api_key") apiKey: String
     ): Response<ShowInformationFromIdResponse>
 }
