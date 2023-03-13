@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.seriesrandomizer.R
-import com.example.seriesrandomizer.api.models.ShowDataClass
+import com.example.seriesrandomizer.api.models.ShowModel
 import com.example.seriesrandomizer.databinding.PopularShowItemBinding
 import com.example.seriesrandomizer.util.ImageLoaderTool
 
-class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>, private val view: View) :
-    RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class ShowRecyclerViewAdapter(private val items: MutableList<ShowModel>, private val view: View) :
+    RecyclerView.Adapter<ShowRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(PopularShowItemBinding.inflate(LayoutInflater.from(parent.context)))
@@ -24,7 +24,7 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>, private
         holder.bind(item, view)
     }
 
-    fun submitList(newItems: List<ShowDataClass>) {
+    fun submitList(newItems: List<ShowModel>) {
         items.clear()
         items.addAll(newItems)
         notifyDataSetChanged()
@@ -33,7 +33,7 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>, private
     class ViewHolder(private val binding: PopularShowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ShowDataClass, view: View) {
+        fun bind(item: ShowModel, view: View) {
             with(binding) {
                 showName.text = item.showName
                 voteAverage.text = root.context.getString(
@@ -51,8 +51,10 @@ class RecyclerViewAdapter(private val items: MutableList<ShowDataClass>, private
                 ImageLoaderTool(item.posterPath.orEmpty(), root.context).loadImage(posterImageView)
 
                 clickableArea.setOnClickListener {
+                    val action =
+                        HomeFragmentDirections.actionHomeFragmentToShowDetailsFragment(item.id!!)
                     Navigation.findNavController(view)
-                        .navigate(R.id.action_homeFragment_to_showDetailsFragment)
+                        .navigate(action)
                 }
             }
         }

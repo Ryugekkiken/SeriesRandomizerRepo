@@ -5,4 +5,21 @@
     <string name="vote_average_string">Vote average: %s</string>
     <string name="vote_count_string">Vote count: %s</string>
     <string name="original_language_string">Original language: %s</string>
+
+    <!-- Show details strings -->
+    <string name="created_by_text">Created by:</string>
+    <string name="where_to_watch_text">Where to watch:</string>
+    <string name="is_in_production_text">Is in production?: </string>
+    <string name="is_in_production_true_text"> Yes</string>
+    <string name="is_in_production_false_text"> No</string>
+    <string name="number_of_episodes_string">Number of episodes: %s</string>
+    <string name="number_of_seasons_string">Number of seasons: %s</string>
+    <string name="avg_episode_runtime_string">Average episode runtime: %s</string>
+    <string name="languages_string">Languages: %s</string>
+    <string name="air_date_string">First air date: %s</string>
+    <string name="genre_string">Genre: %s</string>
+    <string name="overview_title">Synopsis</string>
+    <string name="last_episode_to_air_title">Last episode to air</string>
+    <string name="last_episode_to_air_string">Episode %s %s</string>
+    <string name="episode_synopsis_title">Episode synopsis</string>
 </resources>

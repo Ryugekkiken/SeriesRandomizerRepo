@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.seriesrandomizer.R
 import com.example.seriesrandomizer.databinding.FragmentHomeBinding
 import com.example.seriesrandomizer.util.RecyclerViewItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +25,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel.getSeriesList()
 
-        val adapter = RecyclerViewAdapter(mutableListOf(), binding.root)
+        val adapter = ShowRecyclerViewAdapter(mutableListOf(), binding.root)
         binding.recyclerView.addItemDecoration(RecyclerViewItemDecoration())
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
