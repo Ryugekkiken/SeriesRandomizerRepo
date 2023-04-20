@@ -25,9 +25,16 @@
             android:name="showId"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_showDetailsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.seriesrandomizer.ui.fragments.search.SearchFragment"
-        android:label="Search" />
+        android:label="Search" >
+        <action
+            android:id="@+id/action_searchFragment_to_showDetailsFragment"
+            app:destination="@id/showDetailsFragment" />
+    </fragment>
 </navigation>

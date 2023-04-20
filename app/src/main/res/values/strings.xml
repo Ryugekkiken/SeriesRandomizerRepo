@@ -24,4 +24,7 @@
     <string name="episode_synopsis_title">Episode synopsis</string>
     <string name="home_bottom_nav">Home</string>
     <string name="search_bottom_nav">Search</string>
+
+    <!-- other -->
+    <string name="search_hint">Search a series title</string>
 </resources>
