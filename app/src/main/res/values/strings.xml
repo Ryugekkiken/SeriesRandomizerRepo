@@ -22,4 +22,9 @@
     <string name="last_episode_to_air_title">Last episode to air</string>
     <string name="last_episode_to_air_string">Episode %s %s</string>
     <string name="episode_synopsis_title">Episode synopsis</string>
+    <string name="home_bottom_nav">Home</string>
+    <string name="search_bottom_nav">Search</string>
+
+    <!-- other -->
+    <string name="search_hint">Search a series title</string>
 </resources>
