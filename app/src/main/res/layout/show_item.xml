@@ -16,8 +16,8 @@
             android:id="@+id/showName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@id/posterImageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="The Last of Us" />
@@ -28,17 +28,17 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="@color/design_default_color_primary"
-            app:layout_constraintTop_toBottomOf="@id/showName"
-            app:layout_constraintStart_toStartOf="@id/showName" />
+            app:layout_constraintStart_toStartOf="@id/showName"
+            app:layout_constraintTop_toBottomOf="@id/showName" />
 
         <ImageView
             android:id="@+id/posterImageView"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/airDate"
@@ -48,26 +48,26 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Air date: 2023-12-03"/>
+            tools:text="Air date: 2023-12-03" />
 
         <TextView
             android:id="@+id/voteAverage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/showName"
             app:layout_constraintStart_toStartOf="@id/showName"
-            tools:text="Vote average: 8.5"/>
+            app:layout_constraintTop_toBottomOf="@id/showName"
+            tools:text="Vote average: 8.5" />
 
         <TextView
             android:id="@+id/voteCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            app:layout_constraintTop_toBottomOf="@id/voteAverage"
-            app:layout_constraintStart_toStartOf="@id/voteAverage"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="Vote count: 300"/>
+            app:layout_constraintStart_toStartOf="@id/voteAverage"
+            app:layout_constraintTop_toBottomOf="@id/voteAverage"
+            tools:text="Vote count: 300" />
 
         <TextView
             android:id="@+id/originalLanguage"
@@ -76,7 +76,22 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/voteAverage"
-            tools:text="Original language: En"/>
+            tools:text="Original language: En" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/randomizeButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:drawableLeft="@drawable/baseline_autorenew_24"
+            android:text="@string/randomize_button_text"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/originalLanguage"
+            app:layout_constraintTop_toBottomOf="@id/originalLanguage"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="RtlHardcoded" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

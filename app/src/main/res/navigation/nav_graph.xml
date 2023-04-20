@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment_to_showDetailsFragment"
             app:destination="@id/showDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_randomizeFragment"
+            app:destination="@id/randomizeFragment" />
     </fragment>
     <fragment
         android:id="@+id/showDetailsFragment"
@@ -36,5 +39,16 @@
         <action
             android:id="@+id/action_searchFragment_to_showDetailsFragment"
             app:destination="@id/showDetailsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_randomizeFragment"
+            app:destination="@id/randomizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomizeFragment"
+        android:name="com.example.seriesrandomizer.ui.fragments.randomize.RandomizeFragment"
+        android:label="Randomize">
+        <argument
+            android:name="showId"
+            app:argType="integer" />
     </fragment>
 </navigation>

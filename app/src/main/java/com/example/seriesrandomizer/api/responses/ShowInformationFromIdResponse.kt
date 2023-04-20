@@ -7,19 +7,19 @@ import com.example.seriesrandomizer.api.models.NetworkModel
 import com.google.gson.annotations.SerializedName
 
 data class ShowInformationFromIdResponse(
-    @SerializedName("name") val showName: String?, //Done
-    @SerializedName("tagline") val tagline: String?, //Done
-    @SerializedName("poster_path") val posterPath: String?, //Done
-    @SerializedName("created_by") val createdBy: List<CreatedByModel>?, //Done
-    @SerializedName("in_production") val inProduction: Boolean?, //Done
-    @SerializedName("number_of_seasons") val numberOfSeasons: Int?, //Done
-    @SerializedName("number_of_episodes") val numberOfEpisodes: Int?, //Done
-    @SerializedName("episode_run_time") val averageEpisodeRuntime: List<Int>?, //Done
-    @SerializedName("languages") val languages: List<String>?, //Done
-    @SerializedName("first_air_date") val firstAirDate: String?, //Done
-    @SerializedName("networks") val whereToWatch: List<NetworkModel>?, //Done
-    @SerializedName("overview") val overview: String?, //Done
+    @SerializedName("name") val showName: String?, 
+    @SerializedName("tagline") val tagline: String?, 
+    @SerializedName("poster_path") val posterPath: String?, 
+    @SerializedName("created_by") val createdBy: List<CreatedByModel>?, 
+    @SerializedName("in_production") val inProduction: Boolean?, 
+    @SerializedName("number_of_seasons") val numberOfSeasons: Int?, 
+    @SerializedName("number_of_episodes") val numberOfEpisodes: Int?, 
+    @SerializedName("episode_run_time") val averageEpisodeRuntime: List<Int>?, 
+    @SerializedName("languages") val languages: List<String>?, 
+    @SerializedName("first_air_date") val firstAirDate: String?, 
+    @SerializedName("networks") val whereToWatch: List<NetworkModel>?, 
+    @SerializedName("overview") val overview: String?, 
     @SerializedName("homepage") val homepage: String?,
-    @SerializedName("genres") val genres: List<GenresModel>?, //Done
+    @SerializedName("genres") val genres: List<GenresModel>?,
     @SerializedName("last_episode_to_air") val lastEpisodeToAir: EpisodeModel?,
     )

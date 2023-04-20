@@ -7,14 +7,14 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.seriesrandomizer.R
 import com.example.seriesrandomizer.api.models.ShowModel
-import com.example.seriesrandomizer.databinding.PopularShowItemBinding
+import com.example.seriesrandomizer.databinding.ShowItemBinding
 import com.example.seriesrandomizer.util.ImageLoaderTool
 
 class SearchRecyclerViewAdapter(private val items: MutableList<ShowModel>, private val view: View) :
     RecyclerView.Adapter<SearchRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(PopularShowItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return ViewHolder(ShowItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun getItemCount(): Int = items.size
@@ -30,7 +30,7 @@ class SearchRecyclerViewAdapter(private val items: MutableList<ShowModel>, priva
         notifyDataSetChanged()
     }
 
-    class ViewHolder(private val binding: PopularShowItemBinding) :
+    class ViewHolder(private val binding: ShowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ShowModel, view: View) {
@@ -53,6 +53,13 @@ class SearchRecyclerViewAdapter(private val items: MutableList<ShowModel>, priva
                 clickableArea.setOnClickListener {
                     val action =
                         SearchFragmentDirections.actionSearchFragmentToShowDetailsFragment(item.id!!)
+                    Navigation.findNavController(view)
+                        .navigate(action)
+                }
+
+                randomizeButton.setOnClickListener {
+                    val action =
+                        SearchFragmentDirections.actionSearchFragmentToRandomizeFragment(item.id!!)
                     Navigation.findNavController(view)
                         .navigate(action)
                 }
