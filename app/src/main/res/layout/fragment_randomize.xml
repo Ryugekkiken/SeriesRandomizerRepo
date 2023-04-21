@@ -8,10 +8,10 @@
         android:id="@+id/spinnerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/spinner_label_text"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
-        android:layout_toStartOf="@id/seasonSpinner" />
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/seasonSpinner"
+        android:text="@string/spinner_label_text" />
 
     <Spinner
         android:id="@+id/seasonSpinner"
@@ -26,15 +26,54 @@
         android:layout_height="match_parent"
         android:layout_below="@id/seasonSpinner">
 
+        <ImageView
+            android:id="@+id/episodeStillView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginBottom="16dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toTopOf="@id/episodeName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/episodeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/episodeInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/episodeName"
+            app:layout_constraintStart_toStartOf="@id/episodeName"
+            app:layout_constraintTop_toBottomOf="@id/episodeName" />
+
+        <TextView
+            android:id="@+id/episodeDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/episodeInfo" />
+
         <TextView
             android:id="@+id/hintView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/randomize_hint_text"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

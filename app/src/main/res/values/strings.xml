@@ -25,10 +25,13 @@
     <string name="home_bottom_nav">Home</string>
     <string name="search_bottom_nav">Search</string>
 
-    <!-- other -->
-    <string name="search_hint">Search a series title</string>
+    <!-- Randomize section -->
     <string name="randomize_button_text">Randomize</string>
     <string name="spinner_label_text">Randomize by season: </string>
-    <string name="first_spinner_option">All seasons</string>
+    <string name="first_spinner_option">Any season</string>
     <string name="randomize_hint_text">Tap anywhere on the screen to get a random episode</string>
+    <string name="episode_info_string">Season: %d \nEpisode: %d</string>
+
+    <!-- Search section -->
+    <string name="search_hint">Search a series title</string>
 </resources>

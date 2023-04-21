@@ -29,18 +29,20 @@ class RandomizeFragmentViewModel @Inject constructor(
             val numberOfSeasons = withContext(Dispatchers.IO) {
                 repository.getShowInformationFromId(id, apiKey).body()?.numberOfSeasons
             }
+            val tempEpisodeList = mutableListOf<EpisodeModel>()
 
             _numberOfSeasons.value = numberOfSeasons!!
 
             for (seasonNumber in 1..numberOfSeasons) {
                 repository.getEpisodesForSeason(id, seasonNumber, apiKey).body()?.let {
                     it.episodeList?.let { response ->
-                        _episodeList.value?.addAll(
-                            response.toMutableList()
-                        )
+                        tempEpisodeList.addAll(response.toMutableList())
                     }
                 }
             }
+
+            _episodeList.value = tempEpisodeList
+            tempEpisodeList.clear()
         }
     }
 }
